@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  2×1 widget layout: icon on the left (square, fills height),
+  name on the right taking remaining width.
+-->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:padding="4dp">
+
+    <!-- Square icon pinned to the left, fills full height -->
+    <ImageView
+        android:id="@+id/widget_icon_image"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:adjustViewBounds="true"
+        android:scaleType="fitStart"
+        android:contentDescription="@null" />
+
+    <!-- Name fills remaining width, centred vertically -->
+    <TextView
+        android:id="@+id/widget_icon_label"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toEndOf="@id/widget_icon_image"
+        android:layout_marginStart="8dp"
+        android:gravity="center_vertical|start"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFFFF"
+        android:shadowColor="#CC000000"
+        android:shadowDx="0"
+        android:shadowDy="1"
+        android:shadowRadius="3" />
+
+</RelativeLayout>

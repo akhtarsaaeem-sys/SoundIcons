@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Single resizable AppWidget provider.
+
+  resizeMode="horizontal|vertical" lets the user drag-resize the widget on
+  the launcher. onAppWidgetOptionsChanged() fires whenever the size changes
+  and we pick the best responsive layout.
+
+  minWidth/minHeight: smallest usable size (≈1×1 cell).
+  minResizeWidth/minResizeHeight: smallest the user can drag to.
+-->
+<appwidget-provider
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minWidth="57dp"
+    android:minHeight="57dp"
+    android:minResizeWidth="57dp"
+    android:minResizeHeight="57dp"
+    android:targetCellWidth="1"
+    android:targetCellHeight="1"
+    android:maxResizeWidth="400dp"
+    android:maxResizeHeight="400dp"
+    android:updatePeriodMillis="0"
+    android:initialLayout="@layout/widget_small"
+    android:configure="com.soundicons.app.widget.WidgetConfigureActivity"
+    android:widgetCategory="home_screen"
+    android:resizeMode="horizontal|vertical" />

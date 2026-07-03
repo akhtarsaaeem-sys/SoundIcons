@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Small widget: icon fills the whole cell, no label -->
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:padding="3dp">
+
+    <ImageView
+        android:id="@+id/widget_icon_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="false"
+        android:contentDescription="@null" />
+
+    <!--
+      Hidden label placeholder — always present so RemoteViews.setTextViewText
+      doesn't crash, but visibility is GONE so it takes no space.
+    -->
+    <TextView
+        android:id="@+id/widget_icon_label"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone" />
+
+</FrameLayout>

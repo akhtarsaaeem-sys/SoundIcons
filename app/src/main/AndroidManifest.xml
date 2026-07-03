@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:name=".SoundIconsApp"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SoundIcons">
+
+        <!-- ── Main Activity ───────────────────────────────────────── -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/Theme.SoundIcons">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- ── Widget Configure Activity ───────────────────────────── -->
+        <!-- Shared by both widget providers via android:configure -->
+        <activity
+            android:name=".widget.WidgetConfigureActivity"
+            android:exported="true"
+            android:theme="@style/Theme.SoundIcons">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
+
+        <!--
+            ── Icon Only widget ─────────────────────────────────────────
+            A single square image, freely resizable. Label never shown.
+        -->
+        <receiver
+            android:name=".widget.SoundWidgetIconOnly"
+            android:exported="true"
+            android:label="@string/widget_icon_only_label">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_icon_only_info" />
+        </receiver>
+
+        <!--
+            ── Icon + Name widget ───────────────────────────────────────
+            Image fills space above label. Label always visible. Freely resizable.
+        -->
+        <receiver
+            android:name=".widget.SoundWidgetIconAndName"
+            android:exported="true"
+            android:label="@string/widget_icon_name_label">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_icon_name_info" />
+        </receiver>
+
+        <!--
+            ── Legacy provider stubs ────────────────────────────────────
+            Kept so widgets pinned before this update continue to work.
+            They delegate to the new rendering system via WidgetRemoteViewsHelper.
+            Do NOT show in widget picker (no android:label with spaces).
+        -->
+        <receiver
+            android:name=".widget.SoundWidgetProvider"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_sound_icon_info" />
+        </receiver>
+
+        <receiver
+            android:name=".widget.SoundWidgetProvider2x2"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_sound_2x2_info" />
+        </receiver>
+
+        <!-- ── Widget Tap Receiver ──────────────────────────────────── -->
+        <receiver
+            android:name=".widget.WidgetClickReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.soundicons.app.ACTION_WIDGET_CLICK" />
+            </intent-filter>
+        </receiver>
+
+        <!-- ── Boot Receiver ────────────────────────────────────────── -->
+        <receiver
+            android:name=".widget.BootReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+            </intent-filter>
+        </receiver>
+
+        <!-- ── Audio Foreground Service ─────────────────────────────── -->
+        <service
+            android:name=".service.AudioPlaybackService"
+            android:exported="false"
+            android:foregroundServiceType="mediaPlayback" />
+
+    </application>
+
+</manifest>

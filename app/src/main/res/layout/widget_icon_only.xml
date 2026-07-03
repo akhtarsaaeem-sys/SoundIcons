@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Icon Only widget layout.
+  A single ImageView fills the entire widget cell at any size.
+  scaleType="fitCenter" preserves aspect ratio as the widget grows.
+  The hidden TextView is required so RemoteViews.setTextViewText() never crashes.
+-->
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:padding="3dp">
+
+    <ImageView
+        android:id="@+id/widget_icon_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        android:contentDescription="@null" />
+
+    <!-- Placeholder so setTextViewText never throws — always GONE -->
+    <TextView
+        android:id="@+id/widget_icon_label"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone" />
+
+</FrameLayout>

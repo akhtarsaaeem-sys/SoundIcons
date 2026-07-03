@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Icon Only AppWidget provider metadata.
+  minWidth/minHeight = 57dp = smallest 1×1 launcher cell.
+  No configure Activity — icon is selected during initial config
+  via WidgetConfigureActivity which creates the mapping.
+  resizeMode = both axes so the user can freely resize.
+-->
+<appwidget-provider
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minWidth="57dp"
+    android:minHeight="57dp"
+    android:minResizeWidth="40dp"
+    android:minResizeHeight="40dp"
+    android:targetCellWidth="1"
+    android:targetCellHeight="1"
+    android:maxResizeWidth="600dp"
+    android:maxResizeHeight="600dp"
+    android:updatePeriodMillis="0"
+    android:initialLayout="@layout/widget_icon_only"
+    android:configure="com.soundicons.app.widget.WidgetConfigureActivity"
+    android:widgetCategory="home_screen"
+    android:resizeMode="horizontal|vertical"
+    android:description="@string/widget_icon_only_desc" />

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Icon + Name AppWidget provider metadata.
+  Starts at 1×2 so the name label has room to show at initial placement.
+-->
+<appwidget-provider
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minWidth="57dp"
+    android:minHeight="110dp"
+    android:minResizeWidth="57dp"
+    android:minResizeHeight="73dp"
+    android:targetCellWidth="1"
+    android:targetCellHeight="2"
+    android:maxResizeWidth="600dp"
+    android:maxResizeHeight="600dp"
+    android:updatePeriodMillis="0"
+    android:initialLayout="@layout/widget_icon_and_name"
+    android:configure="com.soundicons.app.widget.WidgetConfigureActivity"
+    android:widgetCategory="home_screen"
+    android:resizeMode="horizontal|vertical"
+    android:description="@string/widget_icon_name_desc" />

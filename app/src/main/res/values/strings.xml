@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Sound Icons</string>
+    <string name="widget_icon_only_label">Sound Icon</string>
+    <string name="widget_icon_only_desc">A sound icon widget — tap to play. Resize freely.</string>
+    <string name="widget_icon_name_label">Sound Icon + Name</string>
+    <string name="widget_icon_name_desc">A sound icon widget with name label — tap to play. Resize freely.</string>
+    <string name="widget_icon_desc">Sound widget icon</string>
+</resources>

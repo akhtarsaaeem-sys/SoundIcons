@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Icon + Name widget layout.
+  LinearLayout (vertical): image takes all space above the label.
+  The label is ALWAYS visible — weight=0 so it takes exactly wrap_content height.
+  The image gets weight=1 so it expands to fill remaining space.
+  This prevents the widget becoming invisible because the label is never hidden.
+  Text size is set dynamically from code via setTextViewTextSize().
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="@android:color/transparent"
+    android:padding="4dp">
+
+    <!-- Image fills all space above label -->
+    <ImageView
+        android:id="@+id/widget_icon_image"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        android:contentDescription="@null" />
+
+    <!-- Label always visible — height is wrap_content, never gone -->
+    <TextView
+        android:id="@+id/widget_icon_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:gravity="center"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:textSize="11sp"
+        android:textColor="#FFFFFFFF"
+        android:shadowColor="#CC000000"
+        android:shadowDx="0"
+        android:shadowDy="1"
+        android:shadowRadius="3"
+        android:paddingBottom="1dp" />
+
+</LinearLayout>

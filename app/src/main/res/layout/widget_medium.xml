@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Medium square widget: large icon, label pinned to bottom -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:padding="5dp">
+
+    <ImageView
+        android:id="@+id/widget_icon_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/widget_icon_label"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="false"
+        android:contentDescription="@null" />
+
+    <TextView
+        android:id="@+id/widget_icon_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFFFF"
+        android:shadowColor="#CC000000"
+        android:shadowDx="0"
+        android:shadowDy="1"
+        android:shadowRadius="3"
+        android:paddingBottom="2dp" />
+
+</RelativeLayout>
